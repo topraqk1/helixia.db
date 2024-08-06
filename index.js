@@ -314,3 +314,5 @@ class HelixiaDB {
     }
   }
 }
+
+module.exports = { HelixiaDB };
