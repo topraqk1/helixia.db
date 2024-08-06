@@ -6,7 +6,7 @@ class HelixiaDB {
   constructor(filePath = 'database.json') {
     this.filePath = filePath;
   }
-  
+
   loadData() {
     try {
       if (fs.existsSync(this.filePath)) {
@@ -35,9 +35,9 @@ class HelixiaDB {
   }
 
   /**
-   * Creates a backup of the database file.
-   * @param {string} [backupPath] - Path to save the backup file. Defaults to `<original-file>.bak`.
-   */
+  * Creates a backup of the database file.
+  * @param {string} [backupPath] - Path to save the backup file. Defaults to `<original-file>.bak`.
+  */
   createBackup(backupPath) {
     try {
       if (!backupPath) {
@@ -50,10 +50,10 @@ class HelixiaDB {
   }
 
   /**
-   * Restores the database from a backup file.
-   * @param {string} backupPath - Path to the backup file.
-   * @throws {Error} If the backup file does not exist.
-   */
+  * Restores the database from a backup file.
+  * @param {string} backupPath - Path to the backup file.
+  * @throws {Error} If the backup file does not exist.
+  */
   restoreBackup(backupPath) {
     try {
       if (!fs.existsSync(backupPath)) {
@@ -67,11 +67,11 @@ class HelixiaDB {
   }
 
   /**
-   * Adds or updates data in the database.
-   * @param {string} key - The key for the data.
-   * @param {*} value - The value to be stored. Cannot be null or undefined.
-   * @throws {DatabaseError} If the value is null or undefined.
-   */
+  * Adds or updates data in the database.
+  * @param {string} key - The key for the data.
+  * @param {*} value - The value to be stored. Cannot be null or undefined.
+  * @throws {DatabaseError} If the value is null or undefined.
+  */
   set(key, value) {
     try {
       if (value === null || value === undefined) {
@@ -86,10 +86,10 @@ class HelixiaDB {
   }
 
   /**
-   * Retrieves data from the database.
-   * @param {string} key - The key for the data.
-   * @returns {*} The value associated with the key, or null if the key does not exist.
-   */
+  * Retrieves data from the database.
+  * @param {string} key - The key for the data.
+  * @returns {*} The value associated with the key, or null if the key does not exist.
+  */
   get(key) {
     try {
       const data = this.loadData();
@@ -101,9 +101,9 @@ class HelixiaDB {
   }
 
   /**
-   * Removes a key from the database.
-   * @param {string} key - The key to be removed from the database.
-   */
+  * Removes a key from the database.
+  * @param {string} key - The key to be removed from the database.
+  */
   remove(key) {
     try {
       const data = this.loadData();
@@ -115,11 +115,11 @@ class HelixiaDB {
   }
 
   /**
-   * Deletes a value from an array in the database.
-   * @param {string} key - The key for the array.
-   * @param {*} value - The value to be deleted from the array.
-   * @throws {DatabaseError} If the key is not an array.
-   */
+  * Deletes a value from an array in the database.
+  * @param {string} key - The key for the array.
+  * @param {*} value - The value to be deleted from the array.
+  * @throws {DatabaseError} If the key is not an array.
+  */
   delete(key, value) {
     try {
       const data = this.loadData();
@@ -134,11 +134,11 @@ class HelixiaDB {
   }
 
   /**
-   * Deletes a key from an object in the database.
-   * @param {string} key - The key for the object.
-   * @param {string} subKey - The key to be deleted from the object.
-   * @throws {DatabaseError} If the key is not an object.
-   */
+  * Deletes a key from an object in the database.
+  * @param {string} key - The key for the object.
+  * @param {string} subKey - The key to be deleted from the object.
+  * @throws {DatabaseError} If the key is not an object.
+  */
   deleteKey(key, subKey) {
     try {
       const data = this.loadData();
@@ -153,9 +153,9 @@ class HelixiaDB {
   }
 
   /**
-   * Removes all entries matching a value from the database.
-   * @param {*} value - The value to be removed from all keys.
-   */
+  * Removes all entries matching a value from the database.
+  * @param {*} value - The value to be removed from all keys.
+  */
   deleteEach(value) {
     try {
       const data = this.loadData();
@@ -173,10 +173,10 @@ class HelixiaDB {
   }
 
   /**
-   * Checks if a key exists in the database.
-   * @param {string} key - The key to check for existence.
-   * @returns {boolean} True if the key exists, otherwise false.
-   */
+  * Checks if a key exists in the database.
+  * @param {string} key - The key to check for existence.
+  * @returns {boolean} True if the key exists, otherwise false.
+  */
   has(key) {
     try {
       const data = this.loadData();
@@ -188,18 +188,18 @@ class HelixiaDB {
   }
 
   /**
-   * Fetches data from the database (same as get).
-   * @param {string} key - The key for the data.
-   * @returns {*} The value associated with the key, or null if the key does not exist.
-   */
+  * Fetches data from the database (same as get).
+  * @param {string} key - The key for the data.
+  * @returns {*} The value associated with the key, or null if the key does not exist.
+  */
   fetch(key) {
     return this.get(key);
   }
 
   /**
-   * Retrieves all data from the database.
-   * @returns {Object} All data in the database.
-   */
+  * Retrieves all data from the database.
+  * @returns {Object} All data in the database.
+  */
   all() {
     try {
       return this.loadData();
@@ -210,8 +210,8 @@ class HelixiaDB {
   }
 
   /**
-   * Clears all data in the database.
-   */
+  * Clears all data in the database.
+  */
   clear() {
     try {
       this.saveData({});
@@ -221,8 +221,8 @@ class HelixiaDB {
   }
 
   /**
-   * Deletes the JSON file from the filesystem.
-   */
+  * Deletes the JSON file from the filesystem.
+  */
   destroy() {
     try {
       fs.unlinkSync(this.filePath);
@@ -232,13 +232,14 @@ class HelixiaDB {
   }
 
   /**
-   * Fetches a value from an object in the database.
-   * @param {string} key - The key for the object.
-   * @param {string} subKey - The key to fetch from the object.
-   * @returns {*} The value associated with the subKey, or null if the subKey does not exist.
-   * @throws {DatabaseError} If the key is not an object.
-   */
-  fetchObject(key, subKey) {
+  * Fetches a value from an object in the database.
+  * @param {string} key - The key for the object.
+  * @param {string} subKey - The key to fetch from the object.
+  * @returns {*} The value associated with the subKey, or null if the subKey does not exist.
+  * @throws {DatabaseError} If the key is not an object.
+  */
+  fetchObject(key,
+    subKey) {
     try {
       const data = this.loadData();
       if (typeof data[key] !== 'object' || data[key] === null) {
@@ -252,12 +253,12 @@ class HelixiaDB {
   }
 
   /**
-   * Fetches a value from an array in the database by index.
-   * @param {string} key - The key for the array.
-   * @param {number} index - The index of the value in the array.
-   * @returns {*} The value at the specified index, or null if the index is out of bounds.
-   * @throws {DatabaseError} If the key is not an array.
-   */
+  * Fetches a value from an array in the database by index.
+  * @param {string} key - The key for the array.
+  * @param {number} index - The index of the value in the array.
+  * @returns {*} The value at the specified index, or null if the index is out of bounds.
+  * @throws {DatabaseError} If the key is not an array.
+  */
   fetchArray(key, index) {
     try {
       const data = this.loadData();
@@ -271,44 +272,45 @@ class HelixiaDB {
     }
   }
 
-/**
- * Performs a mathematical operation on a numeric value in the database.
- * @param {string} key - The key for the numeric value.
- * @param {string} operator - The operator to use ('+', '-', '*', '/').
- * @param {number} value - The value to be used in the operation.
- * @returns {number} The result of the operation.
- * @throws {DatabaseError} If the key is not a number or an invalid operator is provided.
- */
-math(key, operator, value) {
-  try {
-    const data = this.loadData();
-    if (typeof data[key] !== 'number') {
-      throw new DatabaseError('The value associated with the key is not a number.');
+  /**
+  * Performs a mathematical operation on a numeric value in the database.
+  * @param {string} key - The key for the numeric value.
+  * @param {string} operator - The operator to use ('+', '-', '*', '/').
+  * @param {number} value - The value to be used in the operation.
+  * @returns {number} The result of the operation.
+  * @throws {DatabaseError} If the key is not a number or an invalid operator is provided.
+  */
+  math(key, operator, value) {
+    try {
+      const data = this.loadData();
+      if (typeof data[key] !== 'number') {
+        throw new errors.DatabaseError('The value associated with the key is not a number.');
+      }
+      if (!['+', '-', '*', '/'].includes(operator)) {
+        throw new errors.DatabaseError('Invalid operator.');
+      }
+      switch (operator) {
+        case '+':
+          data[key] += value;
+          break;
+        case '-':
+          data[key] -= value;
+          break;
+        case '*':
+          data[key] *= value;
+          break;
+        case '/':
+          if (value === 0) {
+            throw new errors.DatabaseError('Division by zero is not allowed.');
+          }
+          data[key] /= value;
+          break;
+      }
+      this.saveData(data);
+      return data[key];
+    } catch (error) {
+      console.error(color.red(error.message));
+      return null;
     }
-    if (!['+', '-', '*', '/'].includes(operator)) {
-      throw new DatabaseError('Invalid operator.');
-    }
-    switch (operator) {
-      case '+':
-        data[key] += value;
-        break;
-      case '-':
-        data[key] -= value;
-        break;
-      case '*':
-        data[key] *= value;
-        break;
-      case '/':
-        if (value === 0) {
-          throw new DatabaseError('Division by zero is not allowed.');
-        }
-        data[key] /= value;
-        break;
-    }
-    this.saveData(data);
-    return data[key];
-  } catch (error) {
-    console.error(color.red(error.message));
-    return null;
   }
 }
