@@ -1,11 +1,11 @@
 {
-  "name": "helixiadb",
-  "version": "1.0.1",
+  "name": "helixia.db",
+  "version": "1.0.2",
   "description": "A lightweight and high-performance JSON-based database module for Node.js with advanced features including backup and mathematical operations.",
   "main": "index.js",
-  "types": "index.d.ts",
+  "types": "index.ts",
   "scripts": {
-    "test": "echo \"No test specified\" && exit 0",
+    "test": "echo \"No test specified\" && exit 0"
   },
   "keywords": [
     "database",
