@@ -1,4 +1,4 @@
-# **🔹 helixia.db 1.0.1**
+# **🔹 helixia.db 1.0.2**
 
 helixia.db here with new features to make managing your JSON-based database easier and more efficient!
 
