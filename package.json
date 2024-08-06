@@ -1,0 +1,38 @@
+{
+  "name": "helixiadb",
+  "version": "1.0.1",
+  "description": "A lightweight and high-performance JSON-based database module for Node.js with advanced features including backup and mathematical operations.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0",
+  },
+  "keywords": [
+    "database",
+    "json",
+    "nodejs",
+    "database-management",
+    "backup",
+    "math-operations",
+    "helixia"
+  ],
+  "author": "topraqk1",
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "index.ts",
+    "README.md",
+    "Error.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/topraqk1/helixia.db.git"
+  },
+  "homepage": "https://github.com/topraqk1/helixia.db#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
